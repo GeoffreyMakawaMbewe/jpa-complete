@@ -1,7 +1,16 @@
 package com.exponent_softwares.ultimatejparevisited;
 
+import com.exponent_softwares.ultimatejparevisited.entities.Author;
+import com.exponent_softwares.ultimatejparevisited.entities.subentities.Video;
+import com.exponent_softwares.ultimatejparevisited.entities.subentities.VideoRepository;
+import com.exponent_softwares.ultimatejparevisited.repositories.AuthorRepository;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @SpringBootApplication
@@ -11,12 +20,15 @@ public class UltimateJpaRevisitedApplication {
         SpringApplication.run(UltimateJpaRevisitedApplication.class, args);
     }
 
-//    @Bean
-//    CommandLineRunner commandLineRunner(AuthorRepository authorRepository){
-//
-//       return args -> {
-//
-//
+    @Bean
+    CommandLineRunner commandLineRunner(
+            AuthorRepository authorRepository,
+            VideoRepository videoRepository
+    ){
+
+       return args -> {
+
+
 //           Author author1 = Author
 //                   .builder()
 //                   .firstName("John")
@@ -61,8 +73,15 @@ public class UltimateJpaRevisitedApplication {
 //           authorList.add(author5);
 //
 //           authorRepository.saveAll(authorList);
-//
-//       };
-//    }
+           Video video1 = Video
+                   .builder()
+                   .name("Video")
+                   .length(100000)
+                   .build();
+           videoRepository.save(video1);
+
+
+       };
+    }
 
 }
