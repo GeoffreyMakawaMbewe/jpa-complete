@@ -9,7 +9,7 @@ import lombok.experimental.SuperBuilder;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 //@DiscriminatorColumn(name = "Discriminator", discriminatorType = DiscriminatorType.STRING, length = 10) //ONLY NEEDED FOR SINGLE TABLE STRATEGY
 public class Resource {
 

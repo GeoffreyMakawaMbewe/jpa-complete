@@ -15,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 //@DiscriminatorValue("Video")
-@PrimaryKeyJoinColumn(name = "Video_id")
+//@PrimaryKeyJoinColumn(name = "Video_id") //ONLY WORKS WITH JOINED TABLE INHERITANCE TYPE
 public class Video extends Resource {
 
     private int length;

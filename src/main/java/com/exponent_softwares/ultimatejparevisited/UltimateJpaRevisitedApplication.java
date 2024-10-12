@@ -23,7 +23,8 @@ public class UltimateJpaRevisitedApplication {
 
     @Bean
     CommandLineRunner commandLineRunner(
-            AuthorRepository authorRepository
+            AuthorRepository authorRepository,
+            VideoRepository videoRepository
 
             ){
 
@@ -74,7 +75,12 @@ public class UltimateJpaRevisitedApplication {
            authorList.add(author5);
 
            authorRepository.saveAll(authorList);
-
+           Video video = Video
+                   .builder()
+                   .name("Trying to play video")
+                   .length(43545)
+                   .build();
+            videoRepository.save(video);
 
        };
     }
