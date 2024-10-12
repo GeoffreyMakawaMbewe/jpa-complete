@@ -3,33 +3,33 @@ package com.exponent_softwares.ultimatejparevisited.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
 @Entity
-@Builder
-@Setter
-@Getter
+@Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@SuperBuilder
 @Validated
-public class Author {
+public class Author extends BaseEntity{
 
-    @Id
-    @GeneratedValue(
-            strategy = GenerationType.TABLE,
-            generator = "author_table"
-    )
-    @TableGenerator(
-            name = "author_table",
-            table = "author_table",
-            pkColumnName = "id_name",
-            valueColumnName = "id_value",
-            initialValue = 1,
-            allocationSize = 1
-    )
+//    @Id
+//    @GeneratedValue(
+//            strategy = GenerationType.TABLE,
+//            generator = "author_table"
+//    )
+//    @TableGenerator(
+//            name = "author_table",
+//            table = "author_table",
+//            pkColumnName = "id_name",
+//            valueColumnName = "id_value",
+//            initialValue = 1,
+//            allocationSize = 1
+//    )
 
 //    @GeneratedValue(
 //            strategy = GenerationType.SEQUENCE,

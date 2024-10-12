@@ -2,33 +2,33 @@ package com.exponent_softwares.ultimatejparevisited.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
 @Entity
-@Builder
-@Setter
-@Getter
+@SuperBuilder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-public class Course {
+@EqualsAndHashCode(callSuper = true)
+public class Course extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.TABLE,
-            generator = "course_table"
-    )
-
-    @TableGenerator(
-            name = "course_table",
-            table = "course_table",
-            pkColumnName = "id_name",
-            valueColumnName = "id_value",
-            initialValue = 1,
-            allocationSize = 1
-    )
-    private Integer id;
-    private String name;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.TABLE,
+//            generator = "course_table"
+//    )
+//
+//    @TableGenerator(
+//            name = "course_table",
+//            table = "course_table",
+//            pkColumnName = "id_name",
+//            valueColumnName = "id_value",
+//            initialValue = 1,
+//            allocationSize = 1
+//    )
+//    private Integer id;
+    private String title;
     private String description;
 
     //RELATIONSHIP DEFINITION
