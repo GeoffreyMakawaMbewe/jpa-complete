@@ -1,9 +1,6 @@
 package com.exponent_softwares.ultimatejparevisited.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -16,8 +13,26 @@ import lombok.*;
 public class Lecturer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE,
+            generator = "lecturer_table"
+    )
+    @TableGenerator(
+            table = "lecturer_table",
+            name = "lecturer_table",
+            pkColumnName = "id_name",
+            valueColumnName = "id_value",
+            initialValue = 1,
+            allocationSize = 1
+    )
     private Integer id;
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "section_id")
+    private Section section;
+
+    @OneToOne
+    @JoinColumn(name = "resource_id")
+    private Resource resource;
 
 }
