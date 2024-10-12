@@ -9,8 +9,8 @@ import lombok.experimental.SuperBuilder;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "Discriminator", discriminatorType = DiscriminatorType.STRING, length = 10)
+@Inheritance(strategy = InheritanceType.JOINED)
+//@DiscriminatorColumn(name = "Discriminator", discriminatorType = DiscriminatorType.STRING, length = 10) //ONLY NEEDED FOR SINGLE QUOTATION TABLE STRATEGY
 public class Resource {
 
     @Id

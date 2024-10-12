@@ -1,10 +1,7 @@
 package com.exponent_softwares.ultimatejparevisited.entities.subentities;
 
 import com.exponent_softwares.ultimatejparevisited.entities.Resource;
-import jakarta.persistence.DiscriminatorColumn;
-import jakarta.persistence.DiscriminatorType;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,7 +14,8 @@ import lombok.experimental.SuperBuilder;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@DiscriminatorValue("Video")
+//@DiscriminatorValue("Video")
+@PrimaryKeyJoinColumn(name = "Video_id")
 public class Video extends Resource {
 
     private int length;

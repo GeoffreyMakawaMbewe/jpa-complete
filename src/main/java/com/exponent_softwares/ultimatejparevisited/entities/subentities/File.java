@@ -15,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @Data
 @Entity
 @EqualsAndHashCode(callSuper = true)
-@DiscriminatorValue("File")
+//@DiscriminatorValue("File")
 public class File extends Resource {
 
     private String type;

@@ -15,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@DiscriminatorValue("Text")
+//@DiscriminatorValue("Text")
 public class Text extends Resource {
 
     private String content;
