@@ -24,7 +24,7 @@ public class Author {
     )
     @TableGenerator(
             name = "author_table",
-            table = "id_generator",
+            table = "author_table",
             pkColumnName = "id_name",
             valueColumnName = "id_value",
             initialValue = 1,
@@ -50,6 +50,7 @@ public class Author {
 
 
     //RELATIONSHIP DEFINITION
+    @ManyToMany(mappedBy = "authorList")  //Author is the inverse of course-author relationship
     private List<Course> courseList;
 
 

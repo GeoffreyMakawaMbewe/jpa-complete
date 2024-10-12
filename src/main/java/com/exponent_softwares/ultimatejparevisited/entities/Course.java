@@ -1,10 +1,9 @@
 package com.exponent_softwares.ultimatejparevisited.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Builder
@@ -16,11 +15,38 @@ import lombok.*;
 public class Course {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE,
+            generator = "course_table"
+    )
+
+    @TableGenerator(
+            name = "course_table",
+            table = "course_table",
+            pkColumnName = "id_name",
+            valueColumnName = "id_value",
+            initialValue = 1,
+            allocationSize = 1
+    )
     private Integer id;
     private String name;
     private String description;
 
+    //RELATIONSHIP DEFINITION
+    //Course is the owner or the course-author relationship
+    @ManyToMany
+    @JoinTable(
+            name = "authors_courses",
+            joinColumns = {
+                    @JoinColumn(name = "course_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "author_id")
+            }
+    )
+    List<Author> authorList;
+
+    @OneToMany(mappedBy = "course")
+    private List<Section> sectionList;
 
 
 }
